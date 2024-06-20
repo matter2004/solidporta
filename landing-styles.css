@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Ensure content does not overflow */
+    background-color: #000; /* Ensure background is black */
+}
+
+.metal-doors {
+    width: 50%;
+    height: 90%; /* Adjusted height to create space for top and bottom glow */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    perspective: 1000px; /* Perspective for 3D effect */
+    box-shadow: 
+        0 0 20px 10px rgba(0, 128, 255, 0.5), /* Top */
+        0 0 20px 10px rgba(0, 128, 255, 0.5), /* Bottom */
+        20px 0 20px 10px rgba(0, 128, 255, 0.5), /* Left */
+        -20px 0 20px 10px rgba(0, 128, 255, 0.5); /* Right */
+    border-radius: 20px; /* Rounded corners for the container */
+}
+
+.left-door,
+.right-door {
+    position: absolute;
+    width: 100%; /* Full width of container */
+    height: 100%; /* Full height of container */
+    background: url('door-texture.jpg') repeat; /* Replace with your custom texture */
+    background-size: cover; /* Ensure texture covers full area */
+    transition: transform 2s ease; /* Slow transition for zoom effect */
+    transform-origin: center;
+    border-radius: 20px; /* Rounded corners for the doors */
+}
+
+.left-door {
+    left: 0;
+}
+
+.right-door {
+    right: 0;
+}
+
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Initially hidden and scaled down */
+    opacity: 0; /* Initially hidden */
+    transition: transform 1s ease, opacity 1s ease; /* Fade-in and move transition */
+    z-index: -1; /* Ensure logo is behind doors */
+}
+
+.logo {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+}
+
+.open .left-door {
+    transform: translateX(-100%);
+}
+
+.open .right-door {
+    transform: translateX(100%);
+}
+
+.open .logo-container {
+    transform: translate(-50%, -50%) scale(1); /* Move logo to center and show */
+    opacity: 1;
+    z-index: 1; /* Bring logo in front of doors */
+}
+
+.zoomed-in {
+    transform: scale(1.2); /* Zoom in by scaling */
+}
