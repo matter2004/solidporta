@@ -13,7 +13,7 @@ document.querySelector('.metal-doors').addEventListener('click', function() {
             
             // Redirect to index.html after logo animation completes
             setTimeout(function() {
-                window.location.href = 'index.html';
+                window.location.href = 'main.html';
             }, 1000); // Adjust the delay as needed (1000ms = 1 second)
             
         }, 1000); // Adjust the delay as needed (1000ms = 1 second)
